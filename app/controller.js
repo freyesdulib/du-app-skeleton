@@ -18,29 +18,29 @@
 
 'use strict';
 
-const APP = require('../app/model'),
+const DUAPP = require('../app/model'),
     SERVICE = require('../app/service');
 
 exports.create = function (req, res) {
-    APP.create(req, function (data) {
+    DUAPP.create(req, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.read = function (req, res) {
-    APP.read(req, function (data) {
+    DUAPP.read(req, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.update = function (req, res) {
-    APP.update(req, function (data) {
+    DUAPP.update(req, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.delete = function (req, res) {
-    APP.delete(req, function (data) {
+    DUAPP.delete(req, function (data) {
         res.status(data.status).send(data.data);
     });
 };

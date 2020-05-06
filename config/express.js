@@ -52,6 +52,5 @@ module.exports = function() {
     APP.set('views', './views');
     APP.set('view engine', 'ejs');
 
-    require('../auth/routes.js')(APP);
     require('../app/routes.js')(APP);
 };

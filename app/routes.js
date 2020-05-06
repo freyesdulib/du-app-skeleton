@@ -18,14 +18,14 @@
 
 'use strict';
 
-const APP = require('../app/controller'),
+const DUAPP = require('../app/controller'),
     TOKEN = require('../libs/tokens');
 
 module.exports = function (app) {
 
     app.route('/api/app')
-        .post(TOKEN.verify, APP.create)
-        .get(TOKEN.verify, APP.read)
-        .put(TOKEN.verify, APP.update)
-        .delete(TOKEN.verify, App.delete);
+        .post(TOKEN.verify, DUAPP.create)
+        .get(TOKEN.verify, DUAPP.read)
+        .put(TOKEN.verify, DUAPP.update)
+        .delete(TOKEN.verify, DUAPP.delete);
 };

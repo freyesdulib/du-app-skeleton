@@ -23,7 +23,7 @@ const LOG4JS = require('log4js');
 LOG4JS.configure({
     appenders: {
         out: { type: 'stdout' },
-        repo: {
+        app: {
             type: 'dateFile',
             filename: './logs/app.log',
             compress: true

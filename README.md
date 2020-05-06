@@ -33,7 +33,7 @@ add .env file in root folder (see .env-example)
 add mysql schema and db "app" to db, import .sql export
 run app "node app.js"
 http://localhost:8000
-http://localhost:8000/api/app?api_key=your_key
+http://localhost:8000/api/app?id=1&api_key=your_key
 ```
 
 ### Maintainers

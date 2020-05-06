@@ -48,5 +48,5 @@ http://localhost:8000/api/app?api_key=your_key
 
 Ways to get in touch:
 
-* Fernando Reyes (DUniversity of Denver) - fernando.reyes@du.edu
+* Fernando Reyes (University of Denver) - fernando.reyes@du.edu
 * Create an issue in this repository

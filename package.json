@@ -17,7 +17,7 @@
     "dotenv": "^4.0.0",
     "ejs": "^2.7.4",
     "elasticsearch": "^15.5.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-template-cache": "^0.1.0",
     "fs": "0.0.1-security",
     "helmet": "^3.22.0",

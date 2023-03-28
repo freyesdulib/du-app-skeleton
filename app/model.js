@@ -1,6 +1,6 @@
 /**
 
- Copyright 2020 University of Denver
+ Copyright 2023 University of Denver
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,16 +18,16 @@
 
 'use strict';
 
-const LOGGER = require('../libs/log4'),
-    DB = require('../config/db')(),
-    TABLE = 'tbl_records';
+const LOGGER = require('../libs/log4');
+const DB = require('../config/db')();
+const TABLE = 'tbl_records';
 
 /**
  * Creates record
- * @param req
+ * @param record
  * @param callback
  */
-exports.create = function (req, callback) {
+exports.create = function (record, callback) {
 
     DB(TABLE)
         .insert(record)
@@ -45,15 +45,15 @@ exports.create = function (req, callback) {
 
 /**
  * Reads record
- * @param req
+ * @param id
  * @param callback
  */
-exports.read = function (req, callback) {
+exports.read = function (id, callback) {
 
     DB(TABLE)
         .select('*')
         .where({
-            id: req.query.id
+            id: id
         })
         .then(function (data) {
 
@@ -65,24 +65,24 @@ exports.read = function (req, callback) {
 
         })
         .catch(function (error) {
-            LOGGER.module().fatal('FATAL: Unable to read record ' + error);
-            throw 'FATAL: Unable to read record ' + error;
+            LOGGER.module().error('ERROR: Unable to read record ' + error.message);
         });
 };
 
 /**
  * Updates record
- * @param req
+ * @param id
+ * @param record
  * @param callback
  */
-exports.update = function (req, callback) {
+exports.update = function (id, record, callback) {
 
     DB(TABLE)
         .where({
-            id: req.body.id
+            id: id
         })
         .update({
-           record_name: 'meow'
+           record_name: record
         })
         .then(function (data) {
 
@@ -96,21 +96,20 @@ exports.update = function (req, callback) {
 
         })
         .catch(function (error) {
-            LOGGER.module().fatal('FATAL: Unable to update record ' + error);
-            throw 'FATAL: Unable to update record ' + error;
+            LOGGER.module().error('ERROR: Unable to update record ' + error.message);
         });
 };
 
 /**
  * Deletes records
- * @param req
+ * @param id
  * @param callback
  */
-exports.delete = function (req, callback) {
+exports.delete = function (id, callback) {
 
     DB(TABLE)
         .where({
-            id: req.query.id
+            id: id
         })
         .del()
         .then(function (data) {
@@ -122,7 +121,6 @@ exports.delete = function (req, callback) {
 
         })
         .catch(function (error) {
-            LOGGER.module().fatal('FATAL: Unable to delete record ' + error);
-            throw 'FATAL: Unable to delete record ' + error;
+            LOGGER.module().error('ERROR: Unable to delete record ' + error.message);
         });
 };

@@ -1,6 +1,6 @@
 /**
 
- Copyright 2020 University of Denver
+ Copyright 2023 University of Denver
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 
 'use strict';
 
-const CONFIG = require('../config/config'),
-    JWT = require('jsonwebtoken'),
-    LOGGER = require('../libs/log4');
+const CONFIG = require('../config/config');
+const JWT = require('jsonwebtoken');
+const LOGGER = require('../libs/log4');
 
 /**
  * Creates session token

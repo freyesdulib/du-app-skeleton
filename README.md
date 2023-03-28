@@ -27,7 +27,6 @@ All other content is released under [CC-BY-4.0](https://creativecommons.org/lice
 ```
 go into du-app-skeleton
 npm install
-if it doesn't work the first time delete the node_modules folder and npm install
 have mysql 5.4 - 5.7
 add .env file in root folder (see .env-example)
 add mysql schema and db "app" to db, import .sql export

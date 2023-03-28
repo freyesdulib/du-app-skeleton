@@ -1,6 +1,6 @@
 /**
 
- Copyright 2020 University of Denver
+ Copyright 2023 University of Denver
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,14 +18,17 @@
 
 'use strict';
 
-const DUAPP = require('../app/controller'),
-    TOKEN = require('../libs/tokens');
+const CONTROLLER = require('../app/controller');
+const TOKEN = require('../libs/tokens');
 
 module.exports = function (app) {
 
+    app.route('/')
+        .get(CONTROLLER.home);
+
     app.route('/api/app')
-        .post(TOKEN.verify, DUAPP.create)
-        .get(TOKEN.verify, DUAPP.read)
-        .put(TOKEN.verify, DUAPP.update)
-        .delete(TOKEN.verify, DUAPP.delete);
+        .post(TOKEN.verify, CONTROLLER.create)
+        .get(TOKEN.verify, CONTROLLER.read)
+        .put(TOKEN.verify, CONTROLLER.update)
+        .delete(TOKEN.verify, CONTROLLER.delete);
 };

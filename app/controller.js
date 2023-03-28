@@ -1,6 +1,6 @@
 /**
 
- Copyright 2020 University of Denver
+ Copyright 2023 University of Denver
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,29 +18,40 @@
 
 'use strict';
 
-const DUAPP = require('../app/model'),
-    SERVICE = require('../app/service');
+const MODEL = require('../app/model');
+
+exports.home = function (req, res) {
+    res.render('index', {});
+};
 
 exports.create = function (req, res) {
-    DUAPP.create(req, function (data) {
+    let record = req.body.record;
+    MODEL.create(record, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.read = function (req, res) {
-    DUAPP.read(req, function (data) {
+
+    let id = req.query.id;
+
+    MODEL.read(id, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.update = function (req, res) {
-    DUAPP.update(req, function (data) {
+
+    let id = req.body.id;
+    let record = req.body.record;
+
+    MODEL.update(id, record, function (data) {
         res.status(data.status).send(data.data);
     });
 };
 
 exports.delete = function (req, res) {
-    DUAPP.delete(req, function (data) {
+    MODEL.delete(req, function (data) {
         res.status(data.status).send(data.data);
     });
 };
